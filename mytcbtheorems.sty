@@ -1,0 +1,130 @@
+\ProvidesPackage{mytcbtheorems}
+
+\usepackage[dvipsnames]{xcolor}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems, skins, breakable}
+
+% TColorBox Styles
+
+% 3 different styles:
+% - thm<color>box style - Single colour, coloured background, dark coloured west line.
+% - thm<color>line style - thm<color>box style without the background.
+% - thm<type>box style - Similar to thm<color>box style, but the background colour is significantly fainter.
+\tcbset{thmgreenbox/.style={
+enhanced, % TCB skin that adds more options
+fonttitle=\bfseries\sffamily, % Format of title 
+coltitle=ForestGreen!70!black, % Colour of title 
+colback=ForestGreen!5, % Colour of theorem background
+detach title, % Detach title and insert it at \tcbtitle
+before upper={\tcbtitle\hspace{5pt}}, % place title before text
+frame hidden, % Hide Frame
+sharp corners, % Sharp Corners
+boxrule=0pt, % Set box border to 0
+borderline west={2pt}{0pt}{ForestGreen}, % Colour of west border
+terminator sign={.}, % Set terminator to full stop
+description delimiters parenthesis, % Set description to use parantheses
+separator sign none, % Set separator sign to none
+description font=\normalfont\sffamily % Set description font to normal
+},
+thmbluebox/.style={fonttitle=\bfseries\sffamily, coltitle=NavyBlue!70!black,
+colback=NavyBlue!5, detach title, before upper={\tcbtitle\hspace{5pt}}, enhanced, 
+frame hidden, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{NavyBlue},
+terminator sign={.}, description delimiters parenthesis, separator sign none,
+description font=\normalfont\sffamily
+},
+thmredbox/.style={fonttitle=\bfseries\sffamily, coltitle=RawSienna!70!black,
+colback=RawSienna!5, detach title, before upper={\tcbtitle\hspace{5pt}}, enhanced, 
+frame hidden, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{RawSienna},
+terminator sign={.}, description delimiters parenthesis, separator sign none,
+description font=\normalfont\sffamily
+},
+thmtealbox/.style={fonttitle=\bfseries\sffamily, coltitle=TealBlue!70!black,
+colback=TealBlue!5, detach title, before upper={\tcbtitle\hspace{5pt}}, enhanced, 
+frame hidden, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{TealBlue},
+terminator sign={.}, description delimiters parenthesis, separator sign none,
+description font=\normalfont\sffamily
+},
+thmgreybox/.style={fonttitle=\bfseries\sffamily, coltitle=Gray!70!black,
+colback=Gray!5, detach title, before upper={\tcbtitle\hspace{5pt}}, enhanced, 
+frame hidden, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{Gray},
+terminator sign={.}, description delimiters parenthesis, separator sign none,
+description font=\normalfont\sffamily
+},
+thmpinkbox/.style={fonttitle=\bfseries\sffamily, coltitle=WildStrawberry!70!black,
+colback=WildStrawberry!5, detach title, before upper={\tcbtitle\hspace{5pt}}, enhanced, 
+frame hidden, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{WildStrawberry},
+terminator sign={.}, description delimiters parenthesis, separator sign none,
+description font=\normalfont\sffamily
+}, % Currently unused
+thmblueline/.style={fonttitle=\bfseries\sffamily, coltitle=NavyBlue!70!black,
+opacityback=0, detach title, before upper={\tcbtitle\hspace{5pt}}, enhanced, 
+frame hidden, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{NavyBlue},
+terminator sign={.}, description delimiters parenthesis, separator sign none,
+description font=\normalfont\sffamily
+}, %opacitybacktitle and opacityback used to make the background transparent
+thmgreyline/.style={fonttitle=\bfseries\sffamily, coltitle=Gray!70!black,
+opacityback=0, detach title, before upper={\tcbtitle\hspace{5pt}}, enhanced, 
+frame hidden, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{Gray},
+terminator sign={.}, description delimiters parenthesis, separator sign none,
+description font=\normalfont\sffamily
+}, 
+thmproofbox/.style={fonttitle=\bfseries\sffamily, coltitle=RawSienna!70!black,
+colback=RawSienna!1, detach title, before upper={\tcbtitle\hspace{5pt}}, enhanced, 
+frame hidden, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{RawSienna},
+terminator sign={.}, description delimiters parenthesis, separator sign none,
+description font=\normalfont\sffamily
+},
+thmexplanationbox/.style={fonttitle=\bfseries\sffamily, coltitle=NavyBlue!70!black,
+colback=NavyBlue!1, detach title, before upper={\tcbtitle\hspace{5pt}}, enhanced, 
+frame hidden, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{NavyBlue},
+terminator sign={.}, description delimiters parenthesis, separator sign none,
+description font=\normalfont\sffamily
+},
+thmanswerbox/.style={fonttitle=\bfseries\sffamily, coltitle=WildStrawberry!70!black,
+colback=WildStrawberry!1, detach title, before upper={\tcbtitle\hspace{5pt}}, enhanced, 
+frame hidden, sharp corners, boxrule=0pt, borderline west={2pt}{0pt}{WildStrawberry},
+terminator sign={.}, description delimiters parenthesis, separator sign none,
+description font=\normalfont\sffamily
+}, % Currently unused
+}
+
+% TColorBox Theorems
+
+% Definitions are Green
+\newtcbtheorem[] % Starter options
+    {definition} % Environment name
+    {Definition} % Title
+    {thmgreenbox} % Style
+    {definition} % Label prefix
+
+
+% Theorems & related proofs are Red
+\newtcbtheorem[]{theorem}{Theorem}{thmredbox}{theorem}
+\newtcbtheorem[]{proposition}{Proposition}{thmredbox}{proposition}
+\newtcbtheorem[]{lemma}{Lemma}{thmredbox}{lemma}
+\newtcbtheorem[]{corollary}{Corollary}{thmredbox}{corollary} % Fix numbering here
+
+\newtcbtheorem[]{prooftemp}{Proof}{thmproofbox}{prooftemp}
+\renewenvironment{proof}[2]{\vspace{-10pt}\pushQED{\qed}\begin{prooftemp*}{#1}{#2}}{\null\hfill\popQED\end{prooftemp*}}
+
+
+% Examples and Exercises are Blue
+\newtcbtheorem[]{example}{Example}{thmbluebox}{example}
+\newtcbtheorem[]{exercise}{Exercise}{thmbluebox}{exercise}
+\newtcbtheorem[]{problem}{Problem}{thmbluebox}{problem}
+
+\newtcbtheorem[]{tempexplanation}{Proof}{thmexplanationbox}{expl}
+\newenvironment{explanation}[2]{\vspace{-10pt}\pushQED{\(\circledast\)}\begin{tempexplanation*}{#1}{#2}}{\null\hfill\popQED\end{tempexplanation*}}
+
+% Intuition is Teal
+\newtcbtheorem[]{intuition}{Intuition}{thmtealbox}{intuition} % Fix numbering here
+
+% Less important stuff gets lines
+
+% Fix numbering here
+\newtcbtheorem[]{remark}{Remark}{thmblueline}{remark}
+\newtcbtheorem[]{note}{Note}{thmblueline}{note}
+\newtcbtheorem[]{observation}{Observation}{thmblueline}{observation}
+\newtcbtheorem[]{notation}{Notation}{thmgreybox}{notation}
+\newtcbtheorem[]{property}{Property}{thmgreyline}{property}

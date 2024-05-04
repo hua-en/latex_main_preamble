@@ -1,0 +1,130 @@
+\ProvidesPackage{mypreambleessentials}
+
+% ============ BASIC PACKAGES ============
+
+% --== Formatting Stuff ==--
+\usepackage{parskip} % Paragraph formatting, skip over gap in each paragraph
+
+% Microtype, make typesetting look a bit nicer
+\usepackage{microtype}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+% \usepackage[english]{babel}
+
+% Page Formatting
+% \usepackage{geometry}
+% \usepackage{multicol}
+% \geometry{a4paper,left=2.54cm,right=2.54cm,top=2.54cm,bottom=2.54cm} % APA Format
+
+% --== Document Element Stuff ==--
+
+% Better float handling
+\usepackage{float}
+
+% Figures
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\graphicspath{{images/}} % Change location to search for graphics
+
+% Tables
+\usepackage{booktabs}
+\usepackage{multirow}
+% \usepackage{longtable} % Long Tables
+
+% Code Formatting
+% \usepackage{listings}
+% \usepackage[outputdir=./out]{minted}
+
+% PDF Pages for Cover Page
+% \usepackage{pdfpages}
+
+
+% --== Maths Stuff ==--
+\usepackage{amsmath, mathtools, amsthm, amssymb} % AMS Maths Packages
+\usepackage[separate-uncertainty=true]{siunitx} % SI Units
+
+
+% --== Bibliography ==--
+% \usepackage{csquotes}
+% \usepackage[style=chem-acs]{biblatex}
+% \addbibresource{sample.bib} % Import .bib data file
+
+
+% If LuaTeX section, for LuaTeX packages
+%-----------------------------------------------------------------------------
+% \usepackage{ifluatex}
+% \ifluatex 
+
+% % FontSpec and unicode-math
+% \usepackage{fontspec}
+% \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+
+% \setmainfont{IBM Plex Sans} % Set Roman Font and features
+% \setsansfont{Roboto Condensed} % Set Sans Font and features
+% \setmonofont{Inconsolata} % Set Mono font and features
+
+% % \renewcommand{\familydefault}{\sfdefault} % Change default font family to sans serif
+
+% \setmathfont{XCharter Math} % View more maths fonts in LaTeX Maths Test
+% % Possible complete fonts: Cambria Math, STIX Two Math, GFS Neohellenic Math
+% % Less complete fonts: Concrete Math, XCharter Math, Euler-Math, KpMath-Sans.otf, {Garamond Math}[Scale=MatchUppercase], Fira Math
+% \else
+
+% % CMBright Font for PDFLaTeX
+% \usepackage{cmbright}
+% \fi
+%-----------------------------------------------------------------------------
+
+% ============ COMPLEX PACKAGES ============
+
+% --== Change the header and footer with fancyhdr ==--
+% \usepackage{fancyhdr}
+
+% \pagestyle{fancy}
+
+% \fancyhead[R]{}          % Right
+% \fancyhead[C]{}          % Center
+% \fancyhead[L]{}          % Left
+
+% \fancyfoot[R]{\thepage}  % Right
+% \fancyfoot[L]{}          % Left
+% \fancyfoot[C]{\leftmark} % Center
+
+% \renewcommand{\headrulewidth}{2pt} Change Head Line
+% \renewcommand{\footrulewidth}{1pt} Change Foot Line
+
+% --== Alternate Syntax with titleps ==--
+
+% TODO
+
+
+% --== Custom Titles with titlesec ==--
+% \usepackage{titlesec}
+
+% \titleformat
+% {\section} % command
+% [block] % SHAPE
+% {\bfseries \Large \ttfamily} % format
+% {Part \thesection : } % label
+% {0.5ex} % sep
+% {\centering} % Code before format
+% [\rule{\textwidth}{0.2pt}] % Code after format
+
+% \titleformat
+% {\subsection} % command
+% [block] % SHAPE
+% {\bfseries \Large \sffamily} % format
+% {\thesubsection } % label
+% {0.5em} % sep
+% {} % Code before format
+% [] % Code after format
+
+% \titleformat
+% {\subsubsection} % command
+% [block] % SHAPE
+% {\bfseries \large \sffamily} % format
+% {\thesubsubsection} % label
+% {0.5em} % sep
+% {} % Code before format
+% [] % Code after format

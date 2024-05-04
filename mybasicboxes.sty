@@ -1,0 +1,21 @@
+\ProvidesPackage{mybasictheorems}
+
+% --== Theorems ==--
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems, breakable, skins}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\tcolorboxenvironment{definition}{empty, borderline={0pt}{0pt}{black}, boxsep=0.5mm}
+
+\tcbset{plainboxhead/.style={
+colbacktitle=gray!20,
+fonttitle=\normalfont\bfseries\centering,
+coltitle=black,
+colback=white,
+toptitle=1mm,
+bottomtitle=1mm,
+borderline={0pt}{0pt}{black}
+}}
+\newtcbtheorem[]{genstats}{General Statistics}{plainboxhead}{genstats}
+\newtcbtheorem[]{addcontent}{Additional Content}{plainboxhead}{addcontent}
